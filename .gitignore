@@ -1,0 +1,5 @@
+.notes
+__pycache__
+.chalice/deployments/
+.chalice/venv/
+payload.json

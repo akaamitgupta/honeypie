@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+    honeypie_webserver:
+        container_name: honeypie
+        build:
+            context: ../
+            dockerfile: .docker/Dockerfile
+        volumes:
+            - ../:/usr/src/app
+        environment:
+          - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+          - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+          - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+        ports:
+            - ${WEBSERVER_PORT}:8000
+        stdin_open: true
+        tty: true
+        restart: always
