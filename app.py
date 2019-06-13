@@ -1,13 +1,16 @@
 import requests
-from chalice import Chalice
-from bs4 import BeautifulSoup
+from chalice import Chalice, Response
+
+from chalicelib.scraper import Scraper
+
 
 app = Chalice(app_name='honeypie')
 
 
 @app.route('/')
 def index():
-    return {'hello': 'world'}
+    return 'Keep Calm and Enjoy Honeypie'
+
 
 @app.route('/google-forms', methods=['POST'])
 def google_forms():
@@ -15,18 +18,14 @@ def google_forms():
     payload = app.current_request.json_body
     form_response = requests.post(payload['url'], data=payload['inputs'])
 
-    soup = BeautifulSoup(form_response.text, 'html.parser')
+    if form_response.status_code == 200:
+        return {'message': 'Your response has been recorded.'}
 
-    validations = {}
+    scraper = Scraper(form_response.text, payload['inputs'])
 
-    for name in payload['inputs']:
-        tag = soup.find("input", {"name": name})
-        par = tag.find_parent(
-            "div", 'freebirdFormviewerViewNumberedItemContainer'
-        )
-        id = [item['data-item-id'] for item in par.find_all('div', attrs={'data-item-id' : True})]
-        err = soup.find(id='i.err.%s' % id[0]).text
-        if (err):
-            validations[name] = err
+    response_body = {
+        'errors': 'The given data was invalid.',
+        'validations': scraper.handle()
+    }
 
-    return {'validations': validations}
+    return Response(body=response_body, status_code=422)
