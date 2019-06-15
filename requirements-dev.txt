@@ -1,3 +1,7 @@
+# Dev requirements
 chalice>=1.8.0,<1.9.0
 httpie>=1.0.2,<1.1.0
 flake8>=3.6.0,<3.7.0
+
+# Test requirements
+pytest>=4.6.3,<4.7.0

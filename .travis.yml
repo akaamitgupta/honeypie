@@ -1,0 +1,12 @@
+dist: xenial   # required for Python >= 3.7
+language: python
+python:
+    - "3.7"
+
+services:
+    - docker
+
+before_script: pip install docker-compose
+
+script:
+  - cd .docker && docker-compose run honeypie_webserver sh -c "pytest && flake8"

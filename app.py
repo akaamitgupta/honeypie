@@ -1,3 +1,4 @@
+import logging
 import requests
 from chalice import Chalice, Response
 
@@ -16,6 +17,7 @@ def index():
 def google_forms():
     # This is the JSON body the user sent in their POST request.
     payload = app.current_request.json_body
+
     form_response = requests.post(payload['url'], data=payload['inputs'])
 
     if form_response.status_code == 200:
