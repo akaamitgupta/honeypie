@@ -8,5 +8,11 @@ services:
 
 before_script: pip install docker-compose
 
+env:
+    - WEBSERVER_PORT=8012
+    - AWS_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY=AWS_SECRET_ACCESS_KEY
+    - AWS_DEFAULT_REGION=AWS_DEFAULT_REGION
+
 script:
   - cd .docker && docker-compose run honeypie_webserver sh -c "pytest && flake8"
