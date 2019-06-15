@@ -1,4 +1,7 @@
 # Convert Google Forms into API.
+
+[![Build Status](https://travis-ci.org/akaamitgupta/honeypie.svg?branch=master)](https://travis-ci.org/akaamitgupta/honeypie)
+
 #### Google Forms are awesome - so functional and flexible!
 
 This service is advance version of the artile [How to style Google Forms][1]. We have been using this trick to style our google forms to fit into our site's look and feel. And now the time is to think beyond just styling your google forms.
