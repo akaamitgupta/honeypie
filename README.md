@@ -4,9 +4,9 @@
 
 #### Google Forms are awesome - so functional and flexible!
 
-This service is advance version of the artile [How to style Google Forms][1]. We have been using this trick to style our google forms to fit into our site's look and feel. And now the time is to think beyond just styling your google forms.
+This service is an advanced version of the article [How to style Google Forms][1]. We have been using this trick to style our google forms to fit into our site's look and feel. And now the time is to think beyond just styling your google forms.
 
-What if we can convert our google form into API so that we can easlily grab valiation errors given by form into a json format.
+What if we can convert our Google Form into API so that we can easily grab validation errors given by form into a JSON format.
 
 ##### Enough talking lets code
 ```
@@ -34,7 +34,7 @@ curl -X POST \
 }
 ```
 
-Here we can see example of how it works. We need to hit a POST request to our API Gateway `https://xgb5naiofi.execute-api.ap-south-1.amazonaws.com/api/google-forms` along with the payload.
+Here we can see an example of how it works. We need to hit a POST request to our API Gateway `https://xgb5naiofi.execute-api.ap-south-1.amazonaws.com/api/google-forms` along with the payload.
 
 ### Payload
 `url` - The URL of our google form
