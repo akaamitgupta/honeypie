@@ -1,4 +1,3 @@
-import logging
 import requests
 from chalice import Chalice, Response
 
