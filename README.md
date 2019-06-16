@@ -41,10 +41,16 @@ Here we can see an example of how it works. We need to hit a POST request to our
 
 `inputs` - contains the list of form fields as `name: value`
 
+## How it works?
+"Web Scraping!" Yeah, you heard it right. It just an old school web scraping.
+
+We hit a `POST` request to the URL given by you of google forms and it returns the HTML in response then we parse it using very popular [BeautifulSoup][2] to fetch all the validation errors from the page. Click [here](app.py) to check the source code.
+
 
 ## Security
 
 If you discover any security related issues, please email akaamitgupta@gmail.com instead of using the issue tracker.
 
 
-[1]:https://morningstudio.com.au/blog/2013/06/how-to-style-google-forms/
+[1]:https://morningstudio.com.au/blog/2013/06/how-to-style-google-forms
+[2]:https://www.crummy.com/software/BeautifulSoup
